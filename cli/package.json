@@ -1,0 +1,27 @@
+{
+  "name": "@exlibris/exl-cloudapp-cli",
+  "version": "0.1.2",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "eca": "index.js"
+  },
+  "dependencies": {
+    "@exlibris/exl-cloudapp-base": "^0.1.2",
+    "args": "5.0.1",
+    "chalk": "2.4.2",
+    "cheerio": "1.0.0-rc.3",
+    "chokidar": "3.3.1",
+    "esm": "3.2.25",
+    "fs-extra": "8.1.0",
+    "html-entities": "1.2.1",
+    "js-beautify": "1.10.2",
+    "ncp": "2.0.0",
+    "open": "6.4.0",
+    "ora": "3.4.0",
+    "prompts": "2.3.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

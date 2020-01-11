@@ -1,0 +1,16 @@
+
+const chalk = require("chalk");
+const { syncNgDir } = require("../lib/work");
+const { extractLabels } = require("../lib/action");
+const {cwd, appBaseDir, workNg, work} = require("../lib/dirs");
+
+syncNgDir()
+  .then(() => extractLabels([
+      `--input`, `${work}/src`, 
+      `--output`, `${work}/src/assets/i18n/labels.json`,
+      `--clean`,`--sort`, `--format`, `namespaced-json`
+    ]))
+    .catch(error => {
+        console.trace(chalk.redBright(error));
+        process.exit(1);
+    });

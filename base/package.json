@@ -1,0 +1,43 @@
+{
+  "name": "@exlibris/exl-cloudapp-base",
+  "version": "0.1.2",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "dependencies": {
+    "@angular-devkit/build-angular": "0.802.2",
+    "@angular/animations": "8.0.0",
+    "@angular/cdk": "8.2.3",
+    "@angular/cli": "8.3.21",
+    "@angular/common": "8.2.14",
+    "@angular/compiler": "8.2.14",
+    "@angular/compiler-cli": "8.2.14",
+    "@angular/core": "8.2.14",
+    "@angular/forms": "8.0.0",
+    "@angular/language-service": "8.2.14",
+    "@angular/material": "8.2.3",
+    "@angular/platform-browser": "8.2.14",
+    "@angular/platform-browser-dynamic": "8.2.14",
+    "@angular/router": "8.2.14",
+    "@biesbjerg/ngx-translate-extract": "4.2.0",
+    "@exlibris/exl-cloudapp-angular-lib": "^0.1.1",
+    "@ngx-translate/core": "11.0.1",
+    "@ngx-translate/http-loader": "4.0.0",
+    "@types/node": "8.10.59",
+    "lodash": "4.17.15",
+    "loglevel": "1.6.6",
+    "ngx-toastr": "11.2.1",
+    "rxjs": "6.5.4",
+    "ste-core": "1.6.3",
+    "ste-events": "1.6.3",
+    "ste-signals": "1.6.3",
+    "ste-simple-events": "1.6.3",
+    "strongly-typed-events": "1.6.3",
+    "ts-node": "7.0.1",
+    "tslib": "1.10.0",
+    "tslint": "5.20.1",
+    "typescript": "3.5.3",
+    "uuid": "3.3.3",
+    "zone.js": "0.9.1"
+  }
+}
