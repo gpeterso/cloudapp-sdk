@@ -51,10 +51,10 @@ function getOpenUrl(env, port) {
     return `${origin}${envUrl.pathname}${envUrl.search}`;
 }
 
-const buildProd = onDone => {
+const buildProd = (args, onDone) => {
     const start = Date.now();
     fs.removeSync(`${cwd}${sep}build`);
-    const cmd = [ "build" ];
+    const cmd = [ "build", "--" ].concat(args);
     const onDataOut = () => {}
     const onDataErr = data => console.error(chalk.redBright(data.toString()));
     const onExit = error => {

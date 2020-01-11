@@ -6,12 +6,13 @@ const { syncNgDir } = require("../lib/work");
 
 process.env.NODE_ENV = "production";
 
+const args = process.argv.slice(3);
 let spinner;
 
 syncNgDir()
   .then(async () => {
     spinner = ora().start("Building...");
-    buildProd(() => spinner.stop());
+    buildProd(args, () => spinner.stop());
   })
   .catch(error => {
     spinner && spinner.stop();

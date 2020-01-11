@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MainComponent } from './main/main.component';
 
 export function getToastrModule() {
   return ToastrModule.forRoot({
@@ -16,7 +17,8 @@ export function getToastrModule() {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponent
   ],
   imports: [
     MaterialModule,
