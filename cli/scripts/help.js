@@ -1,3 +1,4 @@
+const { getFlags } = require("../lib/commands");
 const chalk = require("chalk");
 
 function printHelp(commands) {
@@ -7,6 +8,10 @@ function printHelp(commands) {
     for (let command in commands) {
         const spaces = Array((length + 5) - command.length).fill(" ").join("");
         console.log(" ", chalk.bold(command), spaces, commands[command]);
+        const flags = getFlags(command);
+        for (let flag in flags) {
+            console.log(Array(length+8).fill(" ").join(""), "  ", flag, ":", flags[flag]);
+        }
     }
     console.log();
 }

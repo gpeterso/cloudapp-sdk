@@ -18,7 +18,8 @@ const configDef = {
       message: "Environment URL: ",
       validate: validateURL
     },
-    transform: value => new URL(value).toString()
+    transform: value => new URL(value).toString(),
+    existingApp: true
   },
   port: {
     type: "number",
@@ -29,7 +30,8 @@ const configDef = {
       initial: 4200,
       validate: validatePort
     },
-    transform: value => Number(value)
+    transform: value => Number(value),
+    existingApp: true
   }
 }
 
