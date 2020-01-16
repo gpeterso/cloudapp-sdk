@@ -10,12 +10,9 @@ const validateConfig = config => {
   if (!config || (Object.keys(config)||[]).length === 0) {
     return Object.keys(configDef);
   }
-  console.log('configDef', configDef)
   const keys = [];
   for (let key in config) {
     const def = configDef[key];
-    console.log('key', key)
-    console.log('def', def)
     if (def && def.validate && !def.validate(config[key])) {
       keys.push(key);
     }
@@ -68,7 +65,6 @@ const writeConfig = config => {
 const checkConfig = async (conf = null) => {
     const config = conf || getConfig();
     const questions = getQuestions(validateConfig(config));
-    console.log(questions);
     if (questions.length > 0) {
       console.log();
       const response = await prompts(questions);
