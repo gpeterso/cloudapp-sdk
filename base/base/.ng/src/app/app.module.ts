@@ -11,7 +11,8 @@ import { MainComponent } from './main/main.component';
 
 export function getToastrModule() {
   return ToastrModule.forRoot({
-    positionClass: 'toast-top-full-width'
+    positionClass: 'toast-top-right',
+    timeOut: 2000
   });
 }
 

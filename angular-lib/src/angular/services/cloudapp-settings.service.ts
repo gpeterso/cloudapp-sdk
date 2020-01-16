@@ -16,21 +16,17 @@ export class CloudAppSettingsService {
 
   get(): Observable<any> {
     return withErrorChecking(defer(() => CloudAppOutgoingEvents.settings()).pipe(
-      concatMap(response => of(JSON.parse(response.settings)))
+      concatMap(response => of(JSON.parse(response.settings || '{}')))
     ));
   }
 
-  getAsFormGroup(): Observable<any> {
-    return this.get().pipe(map(settings => this.asFormGroup(settings)));
-  }
+  getAsFormGroup = (): Observable<any> => this.get().pipe(map(settings => this.asFormGroup(settings)));
 
   set(value: any): Observable<WriteSettingsResponse> {
     return withErrorChecking(defer(() => CloudAppOutgoingEvents.settings(JSON.stringify(value || {}))));
   }
 
-  remove(): Observable<WriteSettingsResponse> {
-    return this.set('')
-  }
+  remove = (): Observable<WriteSettingsResponse> => this.set('');
 
   private asFormGroup(object: Object): AbstractControl {
     if (Array.isArray(object)) {

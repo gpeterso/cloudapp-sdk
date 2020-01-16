@@ -10,9 +10,12 @@ const validateConfig = config => {
   if (!config || (Object.keys(config)||[]).length === 0) {
     return Object.keys(configDef);
   }
+  console.log('configDef', configDef)
   const keys = [];
   for (let key in config) {
     const def = configDef[key];
+    console.log('key', key)
+    console.log('def', def)
     if (def && def.validate && !def.validate(config[key])) {
       keys.push(key);
     }
@@ -62,37 +65,26 @@ const writeConfig = config => {
   fs.writeFileSync(`${workNg}/angular.json`, JSON.stringify(ngConf, null, 3));
 }
 
-const configExistingApp = async () => {
-  let config = configDef;
-  const manifest = require(`${cwd}/manifest.json`);
-  config = Object.assign(config, _.pick(manifest, Object.keys(config)));
-  const questions = getQuestions(Object.keys(config).filter(q=>config[q].existingApp));
-  return promptConfig(questions, config);
-}
-
-const checkConfig = async () => {
-    const config = getConfig();
+const checkConfig = async (conf = null) => {
+    const config = conf || getConfig();
     const questions = getQuestions(validateConfig(config));
-    return promptConfig(questions, config);
+    console.log(questions);
+    if (questions.length > 0) {
+      console.log();
+      const response = await prompts(questions);
+      Object.assign(config, response);
+    }
+    transformConfigValues(config);
+    config.name = _.kebabCase(config.title);
+    if (validateConfig(config).length > 0) {
+      throw new Error("Config is not valid");
+    }
+    writeConfig(config);
+    console.log("\r\nUsing config:");
+    console.log(_.pick(config, ['env', 'port']));
+    return config;
   }
 
-const promptConfig = async (questions, config = {}) => {
-  if (questions.length > 0) {
-    console.log();
-    const response = await prompts(questions);
-    Object.assign(config, response);
-  }
-  transformConfigValues(config);
-  config.name = _.kebabCase(config.title);
-  if (validateConfig(config).length > 0) {
-    throw new Error("Config is not valid");
-  }
-  writeConfig(config);
-  console.log("\r\nUsing config:");
-  console.log(_.pick(config, ['env', 'port']));
-  return config;
-}
-  
   const getConfig = () => require(`${cwd}/config.json`)
 
-  module.exports = { checkConfig, getConfig, configExistingApp }
+  module.exports = { checkConfig, getConfig }

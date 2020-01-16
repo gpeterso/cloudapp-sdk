@@ -5,7 +5,7 @@ const ncp = util.promisify(require("ncp").ncp);
 const prompts = require("prompts");
 const chalk = require("chalk");
 
-const { checkConfig, configExistingApp } = require("../lib/config/config");
+const { checkConfig } = require("../lib/config/config");
 const { updateManifest } = require("../lib/config/manifest");
 const {cwd, appBaseDir, workNg, work} = require("../lib/dirs");
 
@@ -41,13 +41,13 @@ const confirmExistingApp = async () => {
         message: "Do you want to reconfigure this existing app?",
         initial: false
     });
-    if (response.value) return Promise.resolve();
+    if (response.value) return Promise.resolve({title: 'default', description: 'default'});
     return Promise.reject(new Error("Existing app detected."));
 }
 
 const isExistingApp = fs.existsSync(`${cwd}/manifest.json`);
 if (isExistingApp) {
-    confirmExistingApp().then(configExistingApp).then(() => {
+    confirmExistingApp().then(checkConfig).then(() => {
         console.log("\r\nConfiguration created for existing app.")
     }).catch(e => {
         console.error(chalk.redBright(`\r\n${e.message}`));
