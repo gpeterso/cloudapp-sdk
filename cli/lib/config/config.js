@@ -62,8 +62,8 @@ const writeConfig = config => {
   fs.writeFileSync(`${workNg}/angular.json`, JSON.stringify(ngConf, null, 3));
 }
 
-const checkConfig = async () => {
-    const config = getConfig();
+const checkConfig = async (conf = null) => {
+    const config = conf || getConfig();
     const questions = getQuestions(validateConfig(config));
     if (questions.length > 0) {
       console.log();
@@ -80,7 +80,7 @@ const checkConfig = async () => {
     console.log(_.pick(config, ['env', 'port']));
     return config;
   }
-  
+
   const getConfig = () => require(`${cwd}/config.json`)
 
   module.exports = { checkConfig, getConfig }

@@ -33,15 +33,36 @@ const confirmEmptyDir = async () => {
     return Promise.reject(new Error("Directory must be empty"));
 }
 
-confirmEmptyDir().then(copyBaseDir).then(async () => {
-    await checkConfig();
-    updateManifest();
-    console.log("\r\nThe following files and folders were created:")
-    console.log(chalk.green(fs.readdirSync(cwd).join("\r\n")), "\r\n");
-    console.log("Done.\r\n")
-}).catch(e => {
-    console.error(chalk.redBright(`\r\n${e.message}`));
-    process.exit(1);
-});
+const confirmExistingApp = async () => {
+    console.log(`\r\nExisting app detected. [${cwd}]`)
+    const response = await prompts({
+        type: "confirm",
+        name: "value",
+        message: "Do you want to reconfigure this existing app?",
+        initial: false
+    });
+    if (response.value) return Promise.resolve({title: 'default', description: 'default'});
+    return Promise.reject(new Error("Existing app detected."));
+}
 
+const isExistingApp = fs.existsSync(`${cwd}/manifest.json`);
+if (isExistingApp) {
+    confirmExistingApp().then(checkConfig).then(() => {
+        console.log("\r\nConfiguration created for existing app.")
+    }).catch(e => {
+        console.error(chalk.redBright(`\r\n${e.message}`));
+        process.exit(1);
+    });
+} else {
+    confirmEmptyDir().then(copyBaseDir).then(async () => {
+        await checkConfig();
+        updateManifest();
+        console.log("\r\nThe following files and folders were created:")
+        console.log(chalk.green(fs.readdirSync(cwd).join("\r\n")), "\r\n");
+        console.log("Done.\r\n")
+    }).catch(e => {
+        console.error(chalk.redBright(`\r\n${e.message}`));
+        process.exit(1);
+    });
+}
 

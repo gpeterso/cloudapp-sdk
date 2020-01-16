@@ -17,6 +17,13 @@ const subcommands = {
     }
 }
 
+const flags = {
+    start: {
+        "--no-install": "Do not install dependencies",
+        "--no-open-browser": "Do not open browser after starting"
+    }
+}
+
 function getCommands() {
     return commands;
 }
@@ -25,4 +32,8 @@ function getSubCommands(command) {
     return subcommands[command] || {};
 }
 
-module.exports = { getCommands, getSubCommands };
+function getFlags(command) {
+    return flags[command] || {};
+}
+
+module.exports = { getCommands, getSubCommands, getFlags };
