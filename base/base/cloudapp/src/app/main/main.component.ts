@@ -14,7 +14,7 @@ import {
 export class MainComponent implements OnInit, OnDestroy {
 
   private pageLoad$: Subscription;
-  private pageEntities: Entity[];
+  pageEntities: Entity[];
   private _apiResult: any;
 
   hasApiResult: boolean = false;

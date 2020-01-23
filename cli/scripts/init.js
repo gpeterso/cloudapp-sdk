@@ -8,6 +8,7 @@ const chalk = require("chalk");
 const { checkConfig } = require("../lib/config/config");
 const { updateManifest } = require("../lib/config/manifest");
 const {cwd, appBaseDir, workNg, work} = require("../lib/dirs");
+const { syncNgDir } = require("../lib/work");
 
 const copyBaseDir = () => {
     return ncp(appBaseDir, cwd)
@@ -45,9 +46,9 @@ const confirmExistingApp = async () => {
     return Promise.reject(new Error("Existing app detected."));
 }
 
-const isExistingApp = fs.existsSync(`${cwd}/manifest.json`);
+const isExistingApp = fs.existsSync(`${cwd}/manifest.json`) && fs.existsSync(`${cwd}/cloudapp`);
 if (isExistingApp) {
-    confirmExistingApp().then(checkConfig).then(() => {
+    syncNgDir().then(confirmExistingApp).then(checkConfig).then(() => {
         console.log("\r\nConfiguration created for existing app.")
     }).catch(e => {
         console.error(chalk.redBright(`\r\n${e.message}`));

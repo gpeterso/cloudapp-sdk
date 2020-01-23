@@ -1,6 +1,6 @@
 {
   "name": "@exlibris/exl-cloudapp-base",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "scripts": {
     "postinstall": "node scripts/postinstall.js"
   },
@@ -20,7 +20,7 @@
     "@angular/platform-browser-dynamic": "8.2.14",
     "@angular/router": "8.2.14",
     "@biesbjerg/ngx-translate-extract": "4.2.0",
-    "@exlibris/exl-cloudapp-angular-lib": "^0.1.8",
+    "@exlibris/exl-cloudapp-angular-lib": "^0.1.10",
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
     "@types/node": "8.10.59",
