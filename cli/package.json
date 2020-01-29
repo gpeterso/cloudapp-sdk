@@ -1,13 +1,13 @@
 {
   "name": "@exlibris/exl-cloudapp-cli",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "",
   "main": "index.js",
   "bin": {
     "eca": "index.js"
   },
   "dependencies": {
-    "@exlibris/exl-cloudapp-base": "^0.1.10",
+    "@exlibris/exl-cloudapp-base": "^0.1.11",
     "args": "5.0.1",
     "chalk": "2.4.2",
     "cheerio": "1.0.0-rc.3",

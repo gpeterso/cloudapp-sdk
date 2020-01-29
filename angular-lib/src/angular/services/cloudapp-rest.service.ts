@@ -22,6 +22,9 @@ export class CloudAppRestService {
     if (typeof request === 'string') {
       req = { url: request };
     }
+    /* TEMPORARY- calls blocked */
+    (<Request>req).queryParams = Object.assign((<Request>req).queryParams || {}, { fromApp: true })
+
     logger.log('Calling API', req);
     return defer(() => CloudAppRest.call(req as Request)).pipe(
       concatMap(response => {
