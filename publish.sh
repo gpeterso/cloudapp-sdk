@@ -52,6 +52,14 @@ if ! [[ "$new_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 	exit 1
 fi
 
+echo "Update version to $new_version and publish?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) break;;
+        No ) exit;;
+    esac
+done
+
 # angular-lib
 cd "$WORKDIR/angular-lib"
 bump_version $new_version

@@ -4,13 +4,14 @@ const PROXY_CONFIG = {
     "/": {
         target,
         secure: false,
-        // bypass: function (req, res, proxyOptions) {
-            // if (req.headers.accept.indexOf("html") !== -1) {
-            //     console.log("Skipping proxy for browser request.");
-            //     return "/index.html";
-            // }
-            // req.headers["X-Custom-Header"] = "yes";
-        // }
+        onProxyRes: (proxyRes, req, res) => {
+            let cookies =  proxyRes.headers['set-cookie'];
+            cookies && cookies.forEach((val, i, arr) => {
+                const parts = val.split(";").map(p=>p.trim());
+                arr[i] = parts.filter(p=>p.match(/^(?!SameSite|Secure)/i)).join('; ');
+            });
+            proxyRes.headers['set-cookie'] = cookies;
+        }
     }
 }
 
