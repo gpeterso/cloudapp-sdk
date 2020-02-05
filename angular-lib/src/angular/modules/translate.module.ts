@@ -1,17 +1,18 @@
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
+import { Observable, from, of } from 'rxjs';
+import { catchError } from 'rxjs/operators'
 
-export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+export class LazyTranslateLoader implements TranslateLoader {
+    getTranslation(lang: string): Observable<any> {
+      return from(import(`../../../../.ng/src/assets/i18n/${lang}.json`)).pipe(catchError(err=>of({})));
+    }
+  }
 
 export function getTranslateModule() {
     return TranslateModule.forRoot({
         loader: {
             provide: TranslateLoader,
-            useFactory: (createTranslateLoader),
-            deps: [HttpClient]
+            useClass: (LazyTranslateLoader)
         }
     });
 }
