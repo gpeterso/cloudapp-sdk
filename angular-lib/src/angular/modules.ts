@@ -1,4 +1,4 @@
 import { MaterialModule } from './modules/material.module';
-import { getTranslateModule, LazyTranslateLoader } from './modules/translate.module';
+import { getTranslateModule } from './modules/translate.module';
 
-export { MaterialModule, getTranslateModule, LazyTranslateLoader };
+export { MaterialModule, getTranslateModule };
