@@ -8,6 +8,7 @@ const ncp = util.promisify(require("ncp").ncp);
 
 const { work, workNg, baseNg } = require("./dirs");
 const { indexHtml, updateIndexHtmlFile } = require("./files");
+const { updateManifest } = require("./config/manifest.js");
 
 const log = msg => console.log(chalk.gray(`\r\n${msg}\r\n`));
 
@@ -63,6 +64,7 @@ const syncNgDir = () => {
     const updateAfterSync = function() {
         return new Promise(resolve => {
             setTimeout(() => {
+                updateManifest();
                 updateIndexHtmlFile(indexHtml);
                 resolve();
             }, 2000);

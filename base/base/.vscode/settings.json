@@ -7,5 +7,14 @@
         "**/src/assets/manifest*.json": true,
         "**/build": true
     },
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/manifest.json"
+            ],
+            "url": "./manifest.schema.json"
+        }
+    ]
+    
 }
