@@ -10,8 +10,36 @@ export interface StoreResponse extends Response {
 export interface Entity extends Response {
     id: string;
     code?: string;
-    type?: string;
+    type?: EntityType;
     link?: string;
+}
+
+export enum EntityType {
+    BIB_MMS = 'BIB_MMS',
+    LICENSE = 'LICENSE',
+    USER = 'USER',
+    ITEM = 'ITEM',
+    COURSE = 'COURSE',
+    READING_LIST = 'READING_LIST',
+    REQUEST = 'REQUEST',
+    CITATION = 'CITATION',
+    AUTHORITY = 'AUTHORITY',
+    HOLDING = 'HOLDING',
+    /** Electronic collections */
+    IEPA = 'IEPA',
+    /** Library collections */
+    IEC = 'IEC',
+    PO_LINE = 'PO_LINE', 
+    PORTFOLIO = 'PORTFOLIO',
+    INVOICE = 'INVOICE',
+    ELECTRONIC_SERVICE = 'ELECTRONIC_SERVICE',
+    INVOICE_LINE = 'INVOICE_LINE', 
+    LOAN = 'LOAN',
+    REPRESENTATION = 'REPRESENTATION',
+    REPRESENTATION_FILE = 'REPRESENTATION_FILE',
+    VENDOR = 'VENDOR', 
+    FUND = 'FUND', 
+    REMINDER = 'REMINDER'
 }
 
 export interface PageInfo extends Response {

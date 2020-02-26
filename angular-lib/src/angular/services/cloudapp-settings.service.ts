@@ -20,7 +20,7 @@ export class CloudAppSettingsService {
     ));
   }
 
-  getAsFormGroup = (): Observable<any> => this.get().pipe(map(settings => this.asFormGroup(settings)));
+  getAsFormGroup = (): Observable<FormGroup> => this.get().pipe(map(settings => this.asFormGroup(settings) as FormGroup));
 
   set(value: any): Observable<WriteSettingsResponse> {
     return withErrorChecking(defer(() => CloudAppOutgoingEvents.settings(JSON.stringify(value || {}))));
