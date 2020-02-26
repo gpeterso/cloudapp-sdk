@@ -183,7 +183,7 @@
         "connectSrc": {
           "$id": "#/properties/contentSecurity/connectSrc",
           "title": "External URLs",
-          "description": "External URLs that the app can connects to",
+          "description": "External URLs that the app can connect to",
           "type": "array",
           "items": {
             "type": "string"
