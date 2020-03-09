@@ -31,7 +31,7 @@ export class CloudAppSettingsService {
   private asFormGroup(object: Object): AbstractControl {
     if (Array.isArray(object)) {
       return new FormArray(object.map(entry=>this.asFormGroup(entry)));
-    } else if (typeof object === 'object') {
+    } else if (typeof object === 'object' && object != null) {
       return new FormGroup(this.mapObject(object, obj => this.asFormGroup(obj)));
     } else {
       return new FormControl(object);
