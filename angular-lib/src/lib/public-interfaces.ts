@@ -47,7 +47,11 @@ export interface PageInfo extends Response {
 }
 
 export interface InitData extends Response {
-    user: { firstName: string, lastName: string },
+    user: { 
+        firstName: string, 
+        lastName: string,
+        isAdmin: boolean
+     },
     lang: string,
     color: string
 }
@@ -71,3 +75,5 @@ export interface RestErrorResponse extends Response {
 export interface RefreshPageResponse extends BasicResponse { }
 export interface WriteSettingsResponse extends BasicResponse { }
 export interface ReadSettingsResponse extends BasicResponse { }
+export interface WriteConfigResponse extends BasicResponse { }
+export interface ReadConfigResponse extends BasicResponse { }
