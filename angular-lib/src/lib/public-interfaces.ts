@@ -12,6 +12,7 @@ export interface Entity extends Response {
     code?: string;
     type?: EntityType;
     link?: string;
+    description?: string;
 }
 
 export enum EntityType {

@@ -69,7 +69,7 @@
           "options": {
             "browserTarget": "exl-cloudapp-sdk-base:build",
             "proxyConfig": "src/proxy.conf.js",
-            "disableHostCheck": true,
+            "disableHostCheck": false,
             "port": 4200
           },
           "configurations": {
