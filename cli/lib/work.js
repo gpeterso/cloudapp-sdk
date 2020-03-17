@@ -65,6 +65,7 @@ const syncNgDir = () => {
         return new Promise(resolve => {
             setTimeout(() => {
                 copyManifest();
+                updateIndexHtmlFile(indexHtml);
                 resolve();
             }, 2000);
         });

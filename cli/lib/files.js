@@ -24,13 +24,8 @@ const updateIndexHtml = (html, manifest) => {
     let $head = $("head");
     if ($head.length === 0) $head = $("<head>");
     $head.find("meta[http-equiv='Content-Security-Policy']").remove();
-    $(`<meta http-equiv="Content-Security-Policy" content="${getCsp(manifest.contentSecurity)}">`).prependTo($head);
-    if (process.env.NODE_ENV === "production") {
-        $head.find("title").remove();
-        const $title = $("<title>");
-        $title.text(manifest.title);
-        $title.prependTo($head);
-        // TODO: Beacon
+    if (process.env.NODE_ENV != "production") {
+        $(`<meta http-equiv="Content-Security-Policy" content="${getCsp(manifest.contentSecurity)}">`).prependTo($head);
     }
     return htmlBeautify($.html(), { "preserve_newlines": false });
 }
