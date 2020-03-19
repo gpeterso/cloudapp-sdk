@@ -16,3 +16,6 @@ npm install -g @exlibris/exl-cloudapp-cli
 
 ## Contributions
 You can open issues in this repository. Contributions are welcome.
+
+## License 
+This SDK is licensed under the terms of the [BSD 3-Clause](./LICENSE) license. Apps developed with the SDK are intended for use with Ex Libris products and are subject to the terms specified in the [Ex Libris Devloper Network Terms of Use](https://developers.exlibrisgroup.com/about/terms/).
