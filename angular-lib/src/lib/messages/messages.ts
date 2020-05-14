@@ -1,4 +1,6 @@
-import uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
+
+
 import { EventHandlingBase } from 'strongly-typed-events';
 
 import { MessagePayload, CustomEventTarget, Message, MessageEventHandler as _MessageEventHandler, CustomMessageEvent } from './interfaces';
