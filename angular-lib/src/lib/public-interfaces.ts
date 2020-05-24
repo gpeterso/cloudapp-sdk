@@ -47,6 +47,10 @@ export interface PageInfo extends Response {
     entities: Entity[];
 }
 
+export enum UrlTypes {
+    ALMA = 'Alma'
+}
+
 export interface InitData extends Response {
     user: { 
         firstName: string, 
@@ -56,6 +60,8 @@ export interface InitData extends Response {
         isAdmin: boolean
      },
     lang: string,
+    instCode: string,
+    urls: { [key in UrlTypes]: string },
     color: string
 }
 
