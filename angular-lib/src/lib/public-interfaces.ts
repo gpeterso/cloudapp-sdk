@@ -40,7 +40,8 @@ export enum EntityType {
     REPRESENTATION_FILE = 'REPRESENTATION_FILE',
     VENDOR = 'VENDOR', 
     FUND = 'FUND', 
-    REMINDER = 'REMINDER'
+    REMINDER = 'REMINDER',
+    SET = 'SET'
 }
 
 export interface PageInfo extends Response {

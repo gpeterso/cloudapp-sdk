@@ -35,7 +35,7 @@ const getCsp = (contentSecurity) => {
         "default-src": "'none'",
         "style-src": "'self' 'unsafe-inline' fonts.googleapis.com",
         "script-src": "'self'",
-        "font-src": "fonts.gstatic.com",
+        "font-src": "'self' fonts.gstatic.com",
         "img-src": "'self' data: https:",
         "connect-src": "'self'",
         "frame-src": "'self'"
