@@ -1,0 +1,57 @@
+@mixin cloudapp {
+  body[class*=cloudapp-theme] h1 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #474747;
+  }
+  body[class*=cloudapp-theme] h2 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #5e5e5e;
+  }
+  body[class*=cloudapp-theme] h3 {
+    font-size: 12px;
+    font-weight: 400;
+    color: #5e5e5e;
+  }  
+  body[class*=cloudapp-theme] {
+    margin-top: 10px;
+  }
+  p, li, body,
+  span.mat-checkbox-label,
+  span.mat-select-value-text,
+  mat-label {
+    font-size: 14px;
+    font-weight: 300;
+    color: #5e5e5e
+  }
+  a {
+    color: #4164a4
+  }
+  body[class*=cloudapp-theme] .mat-secondary {
+    background-color: #f2f2f2;
+  }
+  body[class*=cloudapp-theme] .mat-secondary:hover {
+    background-color: #d5d5d5;
+  }
+  body[class*=cloudapp-theme] .mat-checkbox-inner-container {
+    margin-top: 3px;
+  }
+  div.cloudapp-actions {
+    display:flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+  }
+  .loading-shade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

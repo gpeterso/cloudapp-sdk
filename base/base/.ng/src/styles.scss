@@ -1,5 +1,6 @@
 @import '~@exlibris/exl-cloudapp-angular-lib/styles/styles';
 @import './main.scss';
+@import './cloudapp.scss';
 
 @each $color,
 $theme in $cloudapp-color-map {
@@ -9,3 +10,4 @@ $theme in $cloudapp-color-map {
 }
 
 @include global-styles();
+@include cloudapp();
