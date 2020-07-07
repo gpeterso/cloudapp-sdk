@@ -1,16 +1,18 @@
 @mixin cloudapp {
   body[class*=cloudapp-theme] h1 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     color: #474747;
   }
-  body[class*=cloudapp-theme] h2 {
-    font-size: 14px;
+  body[class*=cloudapp-theme] h2,
+  body[class*=cloudapp-theme] .mat-card-title {
+    font-size: 16px;
     font-weight: 400;
     color: #5e5e5e;
   }
-  body[class*=cloudapp-theme] h3 {
-    font-size: 12px;
+  body[class*=cloudapp-theme] h3,
+  body[class*=cloudapp-theme] .mat-expansion-panel-header-title {
+    font-size: 14px;
     font-weight: 400;
     color: #5e5e5e;
   }  
@@ -37,10 +39,16 @@
   body[class*=cloudapp-theme] .mat-checkbox-inner-container {
     margin-top: 3px;
   }
+  body[class*=cloudapp-theme] .mat-card-header-text {
+    margin-left: 0;
+  }
   div.cloudapp-actions {
     display:flex;
     justify-content: flex-end;
     margin-bottom: 12px;
+  }
+  div.cloudapp-actions button {
+    margin-left: 7px;
   }
   .loading-shade {
     position: fixed;

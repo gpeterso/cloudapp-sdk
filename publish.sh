@@ -73,6 +73,7 @@ cd "$WORKDIR/base"
 bump_version $new_version
 bump_version "^$new_version" package.json '.dependencies."@exlibris/exl-cloudapp-angular-lib"'
 bump_version "^$new_version" base/package.json '.dependencies."@exlibris/exl-cloudapp-base"'
+bump_version "^$new_version" base/package.json '.dependencies."@exlibris/exl-cloudapp-angular-lib"'
 npm publish --access public
 
 # cli
