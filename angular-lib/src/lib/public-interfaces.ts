@@ -49,7 +49,7 @@ export interface PageInfo extends Response {
 }
 
 export enum UrlTypes {
-    ALMA = 'Alma'
+    ALMA = 'alma'
 }
 
 export interface InitData extends Response {

@@ -26,7 +26,17 @@ export class CloudAppEventsService implements OnDestroy {
   }
 
   getInitData(): Observable<InitData> {
-    return this._getObservable(CloudAppOutgoingEvents.getInitData);
+    return this._getObservable(CloudAppOutgoingEvents.getInitData).pipe(
+      /* Dev environment returns https://localhost for URLs */
+      map((data: InitData)=>{
+        Object.entries(data.urls).forEach(([key, value]) => {
+          if (value.startsWith('https://localhost')) {
+            data.urls[key] = data.urls[key].replace('https', 'http');
+          }
+        })
+        return data;
+      })
+    );
   }
 
   getPageMetadata(): Observable<PageInfo> {
