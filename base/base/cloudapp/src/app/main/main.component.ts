@@ -1,9 +1,8 @@
 import { Subscription } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
   CloudAppRestService, CloudAppEventsService, Request, HttpMethod,
-  Entity, PageInfo, RestErrorResponse
+  Entity, PageInfo, RestErrorResponse, AlertService
 } from '@exlibris/exl-cloudapp-angular-lib';
 
 @Component({
@@ -22,7 +21,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   constructor(private restService: CloudAppRestService,
     private eventsService: CloudAppEventsService,
-    private toastr: ToastrService) { }
+    private alert: AlertService ) { }
 
   ngOnInit() {
     this.pageLoad$ = this.eventsService.onPageLoad(this.onPageLoad);
@@ -56,7 +55,7 @@ export class MainComponent implements OnInit, OnDestroy {
     let requestBody = this.tryParseJson(value);
     if (!requestBody) {
       this.loading = false;
-      return this.toastr.error('Failed to parse json');
+      return this.alert.error('Failed to parse json');
     }
     this.sendUpdateRequest(requestBody);
   }
@@ -64,10 +63,10 @@ export class MainComponent implements OnInit, OnDestroy {
   refreshPage = () => {
     this.loading = true;
     this.eventsService.refreshPage().subscribe({
-      next: () => this.toastr.success('Success!'),
+      next: () => this.alert.success('Success!'),
       error: e => {
         console.error(e);
-        this.toastr.error('Failed to refresh page');
+        this.alert.error('Failed to refresh page');
       },
       complete: () => this.loading = false
     });
@@ -85,7 +84,7 @@ export class MainComponent implements OnInit, OnDestroy {
         this.refreshPage();
       },
       error: (e: RestErrorResponse) => {
-        this.toastr.error('Failed to update data');
+        this.alert.error('Failed to update data');
         console.error(e);
         this.loading = false;
       }
