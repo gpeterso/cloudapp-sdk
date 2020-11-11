@@ -41,4 +41,8 @@ export class AlertService {
   clear(id = this.defaultId) {
     this.subject.next(new Alert({ id }));
   }
+
+  ngOnDestroy() {
+    this.subject.complete();
+  }
 }
