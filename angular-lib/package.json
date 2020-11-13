@@ -12,7 +12,9 @@
     "url": "https://github.com/ExLibrisGroup/cloudapp-sdk.git",
     "directory": "angular-lib"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@angular/router": "9.1.6"
+  },
   "peerDependencies": {
     "@angular/animations": "9.1.6",
     "@angular/cdk": "9.2.3",

@@ -44,7 +44,9 @@ class RestError implements RestErrorResponse {
 
   fromHttpError(e: HttpErrorResponse) {
     Object.assign(this, { ...e });
-    if (e.error) {
+    if (e.status == 401) {
+      this.message = "You are not authorized to perform the requested action.";
+    } else if (e.error) {
       const error = e.error;
       if (error.web_service_result) {
         this.message = error.web_service_result.errorList.error.errorMessage

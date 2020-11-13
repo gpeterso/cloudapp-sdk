@@ -18,7 +18,7 @@ export namespace CloudAppRest {
     export interface Request {
         url: string;
         method?: HttpMethod;
-        headers?: { [header in AllowedHeader]: string };
+        headers?: { [header in AllowedHeader]?: string };
         queryParams?: { [param: string]: any };
         requestBody?: any;
     }

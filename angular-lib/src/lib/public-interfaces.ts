@@ -10,9 +10,9 @@ export interface StoreResponse extends Response {
 export interface Entity extends Response {
     id: string;
     code?: string;
-    type?: EntityType;
-    link?: string;
-    description?: string;
+    type: EntityType;
+    link: string;
+    description: string;
 }
 
 export enum EntityType {

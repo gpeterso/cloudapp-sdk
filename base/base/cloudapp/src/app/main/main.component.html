@@ -9,7 +9,7 @@
     <li>Updates the object using the <code>restService</code> service</li>
     <li>Refreshes the page in Alma</li>
   </ul>
-  <p>Use these building blocks to be on your way to developing your own CloudApp.</p>
+  <p>Use these building blocks to be on your way to developing your own Cloud App.</p>
 </section>
 
 <section>
@@ -37,3 +37,6 @@
     </mat-card-actions>
   </mat-card>
 </section>
+<div class="loading-shade" *ngIf="loading">
+  <mat-spinner diameter="50"></mat-spinner>
+</div>
