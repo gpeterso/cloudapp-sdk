@@ -1,1 +1,1 @@
-export * from './ui/components/alerts';
+export * from './ui/components/alerts/index';
