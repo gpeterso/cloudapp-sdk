@@ -42,6 +42,7 @@ export enum EntityType {
     FUND = 'FUND', 
     REMINDER = 'REMINDER',
     BORROWING_REQUEST = 'BORROWING_REQUEST',
+    LENDING_REQUEST = 'LENDING_REQUEST',
     SET = 'SET'
 }
 
