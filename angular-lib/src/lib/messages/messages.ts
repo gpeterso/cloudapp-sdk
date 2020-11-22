@@ -18,6 +18,8 @@ export namespace CloudAppMessages {
         CALL_REST_API = 'CALL_REST_API',
         ENTITY_SELECT = 'ENTITY_SELECT',
         RELOAD_PAGE = 'RELOAD_PAGE',
+        ALMA_BACK = 'ALMA_BACK',
+        ALMA_MAIN_PAGE = 'ALMA_MAIN_PAGE',
         CLOUDAPP_STORE = 'CLOUDAPP_STORE',
         SETTINGS = 'SETTINGS',
         CONFIG = 'CONFIG',

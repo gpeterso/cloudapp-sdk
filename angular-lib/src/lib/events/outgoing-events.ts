@@ -20,6 +20,14 @@ export namespace CloudAppOutgoingEvents {
     export function reloadPage(messageBus: CloudAppMessages.MessageBus = getMessageBus()): Promise<any> {
         return messageBus.communicate({ name: MessageNames.RELOAD_PAGE });
     }
+    
+    export function almaBack(messageBus: CloudAppMessages.MessageBus = getMessageBus()): Promise<any> {
+        return messageBus.communicate({ name: MessageNames.ALMA_BACK });
+    }
+
+    export function almaMainPage(messageBus: CloudAppMessages.MessageBus = getMessageBus()): Promise<any> {
+        return messageBus.communicate({ name: MessageNames.ALMA_MAIN_PAGE });
+    }
 
     export function store(key: string, value?: any, messageBus: CloudAppMessages.MessageBus = getMessageBus()): Promise<any> {
         const payload = pickBy({ key, value }, v => typeof v !== 'undefined');
