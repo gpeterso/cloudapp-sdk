@@ -4,7 +4,8 @@ const commands = {
     generate: "Generate code in an initialized project",
     "extract-labels": "Extract labels into json files for translation",
     build: "Build production-ready assets for app",
-    help: "Display this list of available commands"
+    help: "Display this list of available commands",
+    version: "Display the installed version of the CLI",
 }
 
 const subcommands = {
@@ -20,7 +21,8 @@ const subcommands = {
 const flags = {
     start: {
         "--no-install": "Do not install dependencies",
-        "--no-open-browser": "Do not open browser after starting"
+        "--no-open-browser": "Do not open browser after starting",
+        " -browser <browser>": "Overwrite the default browser",
     }
 }
 

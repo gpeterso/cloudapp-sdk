@@ -22,7 +22,10 @@ const startDev = (onStart, openBrowser) => {
             console.log(`\r\nServer is listening on port ${port}.`);
             if (openBrowser) {
                 console.log(`Opening browser on ${url}.\r\n`);
-                open(url);
+                const browserArg = process.argv.findIndex(a=>a === '-browser');
+                const app = browserArg > -1 ? process.argv[browserArg+1] : process.env.ECA_BROWSER;
+                const opts = app ? {app: app} : null;
+                open(url, opts);
             }
             started = true;
         }
