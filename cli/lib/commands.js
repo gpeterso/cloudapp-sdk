@@ -22,7 +22,7 @@ const flags = {
     start: {
         "--no-install": "Do not install dependencies",
         "--no-open-browser": "Do not open browser after starting",
-        " -browser <browser>": "Overwrite the default browser",
+        "--browser <browser>": "Overwrite the default browser",
     }
 }
 
