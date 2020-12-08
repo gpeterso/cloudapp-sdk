@@ -53,11 +53,11 @@ export class CloudAppEventsService implements OnDestroy {
     return this._getObservable(CloudAppOutgoingEvents.reloadPage);
   }
 
-  almaBack(): Observable<RefreshPageResponse> {
+  back(): Observable<RefreshPageResponse> {
     return this._getObservable(CloudAppOutgoingEvents.almaBack);
   }
   
-  almaMainPage(): Observable<RefreshPageResponse> {
+  home(): Observable<RefreshPageResponse> {
     return this._getObservable(CloudAppOutgoingEvents.almaMainPage);
   }
 
